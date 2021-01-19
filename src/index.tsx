@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Providers } from "@microsoft/mgt-element";
+import { MsalProvider } from "@microsoft/mgt-msal-provider";
+
+Providers.globalProvider = new MsalProvider({
+  clientId: "31790181-50e9-4c39-9925-5b1397cc9ea7",
+  scopes: ['calendars.read', 'user.read', 'openid', 'profile', 'people.read', 'user.readbasic.all'],
+});
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root") 
 );
 
 // If you want to start measuring performance in your app, pass a function
